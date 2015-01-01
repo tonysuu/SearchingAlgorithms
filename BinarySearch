@@ -1,1 +1,32 @@
+using System;
 
+public class BinarySearch
+{
+	public static void Main()
+	{
+		int [] array = {1,2,3,4,5};
+		Console.WriteLine(Search(array,4));
+	}
+	public static int Search (int[] array, int key) 
+	{
+    int bottom = 0;
+    int top = array.Length - 1;
+    int index = (bottom + top) / 2;
+
+    while (array [index] != key && bottom <= top) 
+	{
+        if (key > array[index])
+            bottom = index + 1;
+        else
+            top = index - 1;
+
+        index = (bottom + top) / 2;
+    }
+
+    if (bottom > top)
+        return -1;
+    else
+        return index;
+	}
+}
+//returns the index of number of interest in a sorted list of numbers
